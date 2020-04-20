@@ -9,6 +9,16 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.getGrades();
+  }
+
+  getGrades() {
+    fetch('/api/grades')
+      .then(response => response.json())
+      .then(data => this.setState({ grades: data }));
+  }
+
   render() {
     return (
       <header>
