@@ -20,6 +20,18 @@ class App extends React.Component {
       .then(data => this.setState({ grades: data }));
   }
 
+  getAverageGrade() {
+    let sum = 0;
+    for (var averageIndex = 0; averageIndex < this.state.grades.length; averageIndex++) {
+      sum += this.state.grades[averageIndex].grade;
+    }
+    let averageGrade = sum / this.state.grades.length;
+    if (isNaN(averageGrade)) {
+      averageGrade = 'N/A';
+    }
+    return Math.round(averageGrade);
+  }
+
   render() {
     return (
       <>
