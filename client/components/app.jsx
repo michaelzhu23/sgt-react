@@ -38,7 +38,7 @@ class App extends React.Component {
         <header>
           <div className="container col-12 my-4">
             <div className="row align-items-end">
-              <Header/>
+              <Header averageGrade={this.getAverageGrade()}/>
             </div>
           </div>
         </header>
