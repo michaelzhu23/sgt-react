@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header';
+import GradeTable from './grade-table';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,13 +22,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <header>
-        <div className="container col-12 my-4">
-          <div className="row align-items-end">
-            <Header/>
+      <>
+        <header>
+          <div className="container col-12 my-4">
+            <div className="row align-items-end">
+              <Header/>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+        <GradeTable grades={this.state.grades}/>
+      </>
     );
   }
 }

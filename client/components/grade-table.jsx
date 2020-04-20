@@ -12,7 +12,7 @@ function Grade(props) {
   );
 }
 
-function GradeTable(props) {
+export default function GradeTable(props) {
   return (
     <table className="table table-striped mb-4">
       <thead className="thead-dark">
@@ -20,7 +20,6 @@ function GradeTable(props) {
           <th>Student Name</th>
           <th>Course</th>
           <th>Grade</th>
-          <th>Operations</th>
         </tr>
       </thead>
       <tbody>
