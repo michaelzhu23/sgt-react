@@ -28,6 +28,7 @@ class App extends React.Component {
     let averageGrade = sum / this.state.grades.length;
     if (isNaN(averageGrade)) {
       averageGrade = 'N/A';
+      return averageGrade;
     }
     return Math.round(averageGrade);
   }
