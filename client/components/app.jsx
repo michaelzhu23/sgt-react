@@ -20,6 +20,22 @@ class App extends React.Component {
       .then(data => this.setState({ grades: data }));
   }
 
+  addGrade(newGrade) {
+    const request = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newGrade)
+    };
+    fetch('/api/grades', request)
+      .then(response => response.json())
+      .then(grade => {
+        const allGrades = this.state.grades.slice();
+        allGrades.push(grade);
+        this.setState({ grades: allGrades });
+      })
+      .catch(err => console.error(err));
+  }
+
   getAverageGrade() {
     let sum = 0;
     for (var averageIndex = 0; averageIndex < this.state.grades.length; averageIndex++) {
