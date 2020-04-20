@@ -8,6 +8,27 @@ export default class GradeForm extends React.Component {
       courseInput: '',
       gradeInput: ''
     };
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleCourseChange = this.handleCourseChange.bind(this);
+    this.handleGradeChange = this.handleGradeChange.bind(this);
+  }
+
+  handleNameChange(event) {
+    this.setState({
+      nameInput: event.target.value
+    });
+  }
+
+  handleCourseChange(event) {
+    this.setState({
+      courseInput: event.target.value
+    });
+  }
+
+  handleGradeChange(event) {
+    this.setState({
+      gradeInput: event.target.value
+    });
   }
 
   render() {
@@ -23,7 +44,8 @@ export default class GradeForm extends React.Component {
             className="form-control"
             name="name"
             placeholder="Student Name"
-            aria-label="Student's Name"/>
+            aria-label="Student's Name"
+            onChange={this.handleNameChange}/>
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -35,7 +57,8 @@ export default class GradeForm extends React.Component {
             className="form-control"
             name="course"
             placeholder="Student Course"
-            aria-label="Student's Course"/>
+            aria-label="Student's Course"
+            onChange={this.handleCourseChange}/>
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -47,7 +70,8 @@ export default class GradeForm extends React.Component {
             className="form-control"
             name="grade"
             placeholder="Student Grade"
-            aria-label="Student's Grade"/>
+            aria-label="Student's Grade"
+            onChange={this.handleGradeChange}/>
         </div>
         <button type="submit" className="btn btn-success mr-2">Add</button>
         <button type="reset" className="btn btn-outline-secondary">Cancel</button>
