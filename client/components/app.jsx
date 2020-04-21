@@ -38,6 +38,20 @@ class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  deleteGrade(gradeId) {
+    fetch(`/api/grades/${gradeId}`, { method: 'DELETE' })
+      .then(() => {
+        const allGrades = this.state.grades.slice();
+        for (let i = 0; i < allGrades.length; i++) {
+          if (allGrades[i].id === gradeId) {
+            allGrades.splice(i, 1);
+            this.setState({ grades: allGrades });
+          }
+        }
+      })
+      .catch(err => console.error(err));
+  }
+
   getAverageGrade() {
     let sum = 0;
     for (let averageIndex = 0; averageIndex < this.state.grades.length; averageIndex++) {
