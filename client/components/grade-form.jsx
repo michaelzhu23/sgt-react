@@ -11,6 +11,7 @@ export default class GradeForm extends React.Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCourseChange = this.handleCourseChange.bind(this);
     this.handleGradeChange = this.handleGradeChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleNameChange(event) {
@@ -28,6 +29,21 @@ export default class GradeForm extends React.Component {
   handleGradeChange(event) {
     this.setState({
       gradeInput: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const newGrade = {
+      name: this.state.nameInput,
+      course: this.state.courseInput,
+      grade: this.state.gradeInput
+    };
+    this.props.onSubmit(newGrade);
+    this.setState({
+      nameInput: '',
+      courseInput: '',
+      gradeInput: ''
     });
   }
 
