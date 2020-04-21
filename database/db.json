@@ -17,6 +17,18 @@
       "name": "Douglas Crockford",
       "course": "JavaScript",
       "grade": 100
+    },
+    {
+      "name": "Michael Zhu",
+      "course": "LearningFuze",
+      "grade": 95,
+      "id": 33
+    },
+    {
+      "name": "Michael Zhu",
+      "course": "LearningFuze",
+      "grade": 77,
+      "id": 34
     }
   ]
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header';
 import GradeTable from './grade-table';
+import GradeForm from './grade-form';
 
 class App extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class App extends React.Component {
 
   getAverageGrade() {
     let sum = 0;
-    for (var averageIndex = 0; averageIndex < this.state.grades.length; averageIndex++) {
+    for (let averageIndex = 0; averageIndex < this.state.grades.length; averageIndex++) {
       sum += this.state.grades[averageIndex].grade;
     }
     let averageGrade = sum / this.state.grades.length;
@@ -60,7 +61,17 @@ class App extends React.Component {
             </div>
           </div>
         </header>
-        <GradeTable grades={this.state.grades}/>
+        <main className="container col-12">
+          <div className="row">
+            <div className="col-lg-8 col-12">
+              <GradeTable grades={this.state.grades} />
+            </div>
+            <div className="col-lg-4 col-12">
+              <h4 className="mb-4 text-lg-left text-center">Add Grade</h4>
+              <GradeForm addNewGrade={this.addGrade}/>
+            </div>
+          </div>
+        </main>
       </>
     );
   }

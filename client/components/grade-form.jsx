@@ -29,7 +29,7 @@ export default class GradeForm extends React.Component {
 
   handleGradeChange(event) {
     this.setState({
-      gradeInput: event.target.value
+      gradeInput: parseInt(event.target.value)
     });
   }
 
@@ -40,16 +40,14 @@ export default class GradeForm extends React.Component {
       course: this.state.courseInput,
       grade: this.state.gradeInput
     };
-    this.props.onSubmit(newGrade);
-    this.setState({
-      nameInput: '',
-      courseInput: '',
-      gradeInput: ''
-    });
+    this.props.addNewGrade(newGrade);
+    this.handleReset();
   }
 
   handleReset(event) {
-    event.preventDefault();
+    if (event) {
+      event.preventDefault();
+    }
     this.setState({
       nameInput: '',
       courseInput: '',
@@ -65,8 +63,9 @@ export default class GradeForm extends React.Component {
             <span className="input-group-text"><i className="fas fa-user"></i></span>
           </div>
           <input
+            required
             type="text"
-            value={this.nameInput}
+            value={this.state.nameInput}
             className="form-control"
             name="name"
             placeholder="Student Name"
@@ -78,8 +77,9 @@ export default class GradeForm extends React.Component {
             <span className="input-group-text"><i className="far fa-list-alt"></i></span>
           </div>
           <input
+            required
             type="text"
-            value={this.courseInput}
+            value={this.state.courseInput}
             className="form-control"
             name="course"
             placeholder="Student Course"
@@ -91,8 +91,9 @@ export default class GradeForm extends React.Component {
             <span className="input-group-text"><i className="fas fa-graduation-cap"></i></span>
           </div>
           <input
+            required
             type="number"
-            value={this.gradeInput}
+            value={this.state.gradeInput}
             className="form-control"
             name="grade"
             placeholder="Student Grade"
