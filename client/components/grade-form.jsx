@@ -12,6 +12,7 @@ export default class GradeForm extends React.Component {
     this.handleCourseChange = this.handleCourseChange.bind(this);
     this.handleGradeChange = this.handleGradeChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleNameChange(event) {
@@ -47,9 +48,18 @@ export default class GradeForm extends React.Component {
     });
   }
 
+  handleReset(event) {
+    event.preventDefault();
+    this.setState({
+      nameInput: '',
+      courseInput: '',
+      gradeInput: ''
+    });
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit} onReset={this.handleReset}>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text"><i className="fas fa-user"></i></span>
