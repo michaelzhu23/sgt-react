@@ -34,6 +34,7 @@ export default function GradeTable(props) {
                 <Grade
                   key={grade.id}
                   grade={grade}
+                  removeGrade={props.removeGrade}
                 />
               );
             })
