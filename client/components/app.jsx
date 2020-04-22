@@ -76,6 +76,7 @@ class App extends React.Component {
             </div>
           </div>
         </header>
+        <hr className="pb-3"/>
         <main className="container col-12">
           <div className="row">
             <div className="col-lg-8 col-12">

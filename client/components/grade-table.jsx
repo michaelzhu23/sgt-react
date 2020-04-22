@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 import React from 'react';
 
 function Grade(props) {
@@ -8,6 +6,15 @@ function Grade(props) {
       <td>{props.grade.name}</td>
       <td>{props.grade.course}</td>
       <td>{props.grade.grade}</td>
+      <td>
+        <button
+          onClick={() => {
+            props.removeGrade(props.grade.id);
+          }}
+          className="btn btn-danger">
+        DELETE
+        </button>
+      </td>
     </tr>
   );
 }
@@ -25,6 +32,7 @@ export default function GradeTable(props) {
             <th>Student Name</th>
             <th>Course</th>
             <th>Grade</th>
+            <th>Operations</th>
           </tr>
         </thead>
         <tbody>

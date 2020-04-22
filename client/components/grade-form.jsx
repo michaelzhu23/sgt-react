@@ -28,9 +28,15 @@ export default class GradeForm extends React.Component {
   }
 
   handleGradeChange(event) {
-    this.setState({
-      gradeInput: parseInt(event.target.value)
-    });
+    if (event.target.value === '') {
+      this.setState({
+        gradeInput: event.target.value
+      });
+    } else {
+      this.setState({
+        gradeInput: parseInt(event.target.value)
+      });
+    }
   }
 
   handleSubmit(event) {
