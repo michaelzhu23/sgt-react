@@ -10,6 +10,7 @@ class App extends React.Component {
       grades: []
     };
     this.addGrade = this.addGrade.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
   }
 
   componentDidMount() {
@@ -78,7 +79,7 @@ class App extends React.Component {
         <main className="container col-12">
           <div className="row">
             <div className="col-lg-8 col-12">
-              <GradeTable grades={this.state.grades} />
+              <GradeTable grades={this.state.grades} removeGrade={this.deleteGrade}/>
             </div>
             <div className="col-lg-4 col-12">
               <h4 className="mb-4 text-lg-left text-center">Add Grade</h4>
